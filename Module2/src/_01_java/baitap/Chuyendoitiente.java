@@ -1,6 +1,8 @@
+package _01_java.baitap;
+
 import java.util.Scanner;
 
-public class baitap_chuyendoitiente {
+public class Chuyendoitiente {
     public static void main(String[] args) {
         int rate = 23000;
         System.out.println("Nhập USD : ");

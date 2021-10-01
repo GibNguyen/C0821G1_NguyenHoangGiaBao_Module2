@@ -1,6 +1,8 @@
+package _01_java.thuchanh;
+
 import java.util.Scanner;
 
-public class thuchanh_day_of_month {
+public class DayOfMonth {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

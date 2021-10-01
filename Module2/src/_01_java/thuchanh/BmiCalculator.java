@@ -1,6 +1,8 @@
+package _01_java.thuchanh;
+
 import java.util.Scanner;
 
-public class thuchanh_bmi_calculator {
+public class BmiCalculator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double weight, height, bmi;

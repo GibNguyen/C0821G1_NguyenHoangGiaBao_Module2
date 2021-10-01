@@ -1,6 +1,8 @@
+package _01_java.thuchanh;
+
 import java.util.Scanner;
 
-public class thuchanh_namnhuan {
+public class NamNhuan {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int year;

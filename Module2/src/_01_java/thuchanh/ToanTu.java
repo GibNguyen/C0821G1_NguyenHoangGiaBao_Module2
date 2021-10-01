@@ -1,6 +1,8 @@
+package _01_java.thuchanh;
+
 import java.util.Scanner;
 
-public class thuchanh_toantu {
+public class ToanTu {
     public static void main(String[] args) {
         float width;
         float height;

@@ -1,6 +1,8 @@
+package _01_java.baitap;
+
 import java.util.Scanner;
 
-public class baitap_docso_thanhchu {
+public class Docsothanhchu {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập số muốn đọc : ");
