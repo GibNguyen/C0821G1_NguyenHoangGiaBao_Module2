@@ -2,7 +2,7 @@ package _01_java.baitap;
 
 import java.util.Scanner;
 
-public class Docsothanhchu {
+public class DocSoThanhChu {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập số muốn đọc : ");

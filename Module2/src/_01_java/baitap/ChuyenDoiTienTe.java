@@ -2,7 +2,7 @@ package _01_java.baitap;
 
 import java.util.Scanner;
 
-public class Chuyendoitiente {
+public class ChuyenDoiTienTe {
     public static void main(String[] args) {
         int rate = 23000;
         System.out.println("Nhập USD : ");

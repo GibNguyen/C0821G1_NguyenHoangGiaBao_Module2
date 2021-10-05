@@ -32,7 +32,10 @@ public class DayOfMonth {
                 daysInMonth = "";
         }
 
-        if (!daysInMonth.equals("")) System.out.printf("The month '%d' has %s days!", month, daysInMonth);
-        else System.out.print("Invalid input!");
+        if (!daysInMonth.equals("")) {
+            System.out.printf("The month '%d' has %s days!", month, daysInMonth);
+        } else {
+            System.out.print("Invalid input!");
+        }
     }
 }
