@@ -16,10 +16,10 @@ public class HienThiSoNguyenTo {
                 if (N % i == 0) {
                     check = false;
                     break;
-                } else check = true;
+                }
             }
 
-            if (check == true) {
+            if (check) {
                 System.out.println(N);
                 count++;
             }
