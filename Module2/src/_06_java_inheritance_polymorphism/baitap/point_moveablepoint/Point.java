@@ -35,7 +35,7 @@ public class Point {
     }
 
     public float[] getXY() {
-        float[] array = {this.getX(), this.getY()};
+        float[] array = {this.x ,this.y};
         return array;
     }
 
