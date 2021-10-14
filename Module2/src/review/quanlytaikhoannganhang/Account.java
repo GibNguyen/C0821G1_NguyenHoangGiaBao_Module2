@@ -1,7 +1,7 @@
 package review.quanlytaikhoannganhang;
 
 import java.text.NumberFormat;
-import java.util.Locale;
+
 
 public class Account {
     private long idAccount;//Số tk
@@ -47,7 +47,7 @@ public class Account {
     public String toString() {
         NumberFormat currencyVN = NumberFormat.getCurrencyInstance();
         String str1 = currencyVN.format(moneyAccount);
-        return idAccount+","+nameAccount+","+str1;
+        return "id account : "+idAccount+","+" name account : "+nameAccount+","+" money account : "+str1;
     }
 
     public double addMoneyAccount(double moneyAdd) {
@@ -71,8 +71,8 @@ public class Account {
     }
 
     public void transMoney(Account account1, Account account2, double money) {
-        account1.addMoneyAccount(money);
-        account2.withdrawAccount(money);
+        account1.withdrawAccount(money);
+        account2.addMoneyAccount(money);
     }
 
 }

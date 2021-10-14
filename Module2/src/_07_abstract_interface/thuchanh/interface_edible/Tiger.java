@@ -1,0 +1,8 @@
+package _07_abstract_interface.thuchanh.interface_edible;
+
+public class Tiger extends Animal {
+    @Override
+    public String makeSound() {
+        return "Tiger: roarrrrr!";
+    }
+}
