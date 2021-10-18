@@ -1,9 +1,6 @@
 package review.student_manager;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,7 +31,7 @@ public class Main {
                     System.out.println("Mời bạn nhập điểm: ");
                     int point = Integer.parseInt(input.nextLine());
                     Student student = new Student(id, name, adress, point);
-                    studentList.add(index, student);
+                    studentList.add(index - 1, student);
                     break;
                 case 2:
                     System.out.println("Nhập ID sinh viên muốn xóa: ");
@@ -51,37 +48,46 @@ public class Main {
                 case 3:
                     System.out.println("Nhập ID sinh viên muốn sửa: ");
                     int idSua = Integer.parseInt(input.nextLine());
-                    for (int i = 0; i < studentList.size(); i++) {
-                        if (idSua == studentList.get(i).getiD()) {
+                    for (Student item : studentList) {
+                        if (idSua == item.getiD()) {
                             System.out.println("Sửa tên: ");
                             String nameEdit = input.nextLine();
                             System.out.println("Sửa địa chỉ: ");
                             String addressEdit = input.nextLine();
                             System.out.println("Sửa điểm: ");
                             int pointEdit = Integer.parseInt(input.nextLine());
-                            studentList.get(i).setName(nameEdit);
-                            studentList.get(i).setAdress(addressEdit);
-                            studentList.get(i).setPoint(pointEdit);
+                            item.setName(nameEdit);
+                            item.setAdress(addressEdit);
+                            item.setPoint(pointEdit);
                         }
-                      }
+                    }
                 case 4:
-                    for (int i = 0; i < studentList.size(); i++) {
-                        System.out.println("ID: " + studentList.get(i).getiD() + " Tên: " + studentList.get(i).getName() + " Địa chỉ: " + studentList.get(i).getAdress() + " Point: " + studentList.get(i).getPoint());
+                    for (Student value : studentList) {
+                        System.out.println("ID: " + value.getiD() + " Tên: " + value.getName() + " Địa chỉ: " + value.getAdress() + " Point: " + value.getPoint());
                     }
                     break;
                 case 5:
                     System.out.println("Nhập mã sinh viên muốn kiểm tra: ");
                     int idKiemtra = Integer.parseInt(input.nextLine());
+                    boolean check = false;
+                    int indexKiemTra = 0;
                     for (int i = 0; i < studentList.size(); i++) {
                         if (idKiemtra == studentList.get(i).getiD()) {
-                            int indexKiemTra = i;
-                            System.out.println("ID: " + studentList.get(indexKiemTra).getiD() + " Tên: " + studentList.get(indexKiemTra).getName() + " Địa chỉ: " + studentList.get(indexKiemTra).getAdress() + " Point: " + studentList.get(indexKiemTra).getPoint());
-
+                            indexKiemTra = i;
+                            check = true;
+                            break;
+                        } else {
+                            check = false;
                         }
+                    }
+                    if (check) {
+                        System.out.println("ID: " + studentList.get(indexKiemTra).getiD() + " Tên: " + studentList.get(indexKiemTra).getName() + " Địa chỉ: " + studentList.get(indexKiemTra).getAdress() + " Point: " + studentList.get(indexKiemTra).getPoint());
+                    } else {
+                        System.out.println("Sinh viên không tồn tại trong danh sách");
                     }
                     break;
                 case 6:
-                    studentList.sort(Comparator.comparingInt(Student::getPoint));
+                    Collections.sort(studentList);
                     break;
                 case 7:
                     System.exit(0);

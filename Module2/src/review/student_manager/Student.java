@@ -2,7 +2,7 @@ package review.student_manager;
 
 import java.util.Comparator;
 
-public class Student implements Comparator<Student> {
+public class Student implements Comparable {
     private int iD;
     private String name;
     private String adress;
@@ -51,22 +51,18 @@ public class Student implements Comparator<Student> {
     }
 
 
-    //    @Override
-//    public int compareTo(Object o) {
-//        if (o == null || !(o instanceof Student)) {
-//            return 0;
-//        }
-//        Student student = (Student) o;
-//        if (this.point > student.getPoint()) {
-//            return 1;
-//        } else if (this.point < student.getPoint()) {
-//            return -1;
-//        } else {
-//            return 0;
-//        }
-//    }
-    @Override
-    public int compare(Student o1, Student o2) {
-        return o1.getPoint() - o2.getPoint();
+        @Override
+    public int compareTo(Object o) {
+        if (!(o instanceof Student)) {
+            return 0;
+        }
+        Student student = (Student) o;
+        if (this.point > student.getPoint()) {
+            return 1;
+        } else if (this.point < student.getPoint()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }
