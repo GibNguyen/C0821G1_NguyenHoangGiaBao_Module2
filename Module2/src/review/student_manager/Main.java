@@ -61,6 +61,7 @@ public class Main {
                             item.setPoint(pointEdit);
                         }
                     }
+                    break;
                 case 4:
                     for (Student value : studentList) {
                         System.out.println("ID: " + value.getiD() + " Tên: " + value.getName() + " Địa chỉ: " + value.getAdress() + " Point: " + value.getPoint());
