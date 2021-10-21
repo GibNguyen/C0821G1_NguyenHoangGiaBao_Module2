@@ -1,9 +1,9 @@
 package _11_map_tree.baitap.quanlysanpham.arraylist;
 
 public class Products implements Comparable {
-    int iD;
-    double price;
-    String name;
+    private int iD;
+    private double price;
+    private String name;
 
     public Products() {
     }
