@@ -11,7 +11,7 @@ public class Products implements Comparable {
     public Products(int iD, String name, double price) {
         this.iD = iD;
         this.price = price;
-        this.name= name;
+        this.name = name;
     }
 
     public int getiD() {
@@ -29,6 +29,7 @@ public class Products implements Comparable {
     public void setPrice(double price) {
         this.price = price;
     }
+
     public String getName() {
         return name;
     }
@@ -48,16 +49,16 @@ public class Products implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        if(o==null||!(o instanceof Products)){
-            return 0;
-        }
-        Products products = (Products)o;
-        if(this.getPrice()>products.getPrice()){
-            return 1;
-        }
-        else if(this.getPrice()<products.getPrice()){
-            return -1;
-        }
-        else return 0;
+//        if (o == null || !(o instanceof Products)) {
+//            return 0;
+//        }
+        Products products = (Products) o;
+//        if (this.getPrice() > products.getPrice()) {
+//            return 1;
+//        } else if (this.getPrice() < products.getPrice()) {
+//            return -1;
+//        } else return 0;
+//    }
+        return (int) (this.getPrice() - ((Products) o).getPrice());
     }
 }
