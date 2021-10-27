@@ -18,7 +18,7 @@ public class Main {
                     throw new IllegalTriangleException("That is not a triangle");
                 }
             } catch (IllegalTriangleException e) {
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         }
     }
