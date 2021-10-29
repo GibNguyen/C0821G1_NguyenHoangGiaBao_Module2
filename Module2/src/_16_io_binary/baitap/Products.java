@@ -1,6 +1,7 @@
 package _16_io_binary.baitap;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Products implements Serializable {
     private int codeProduct;
@@ -18,6 +19,10 @@ public class Products implements Serializable {
     }
 
     public Products() {
+    }
+
+    public Products(String nameFind) {
+        this.nameProduct=nameFind;
     }
 
     public int getCodeProduct() {
@@ -70,4 +75,13 @@ public class Products implements Serializable {
                 ", descriptionProduct='" + descriptionProduct + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Products products = (Products) o;
+        return Objects.equals(nameProduct, products.nameProduct);
+    }
+
 }
