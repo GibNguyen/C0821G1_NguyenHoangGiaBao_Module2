@@ -1,14 +1,12 @@
 package review.candidates_manager.models;
 
-import review.candidates_manager.models.Candidates;
-
 public class InternCandidate extends Candidates {
-    String major;
-    int semester;
-    String universityName;
-    int candidateType =2;
+    private String major;
+    private int semester;
+    private String universityName;
 
-    public InternCandidate(int iD, String firstName, String lastName, int birthDay, String address, int phone, String email, int candidateType, String major, int semester, String universityName) {
+
+    public InternCandidate(int iD, String firstName, String lastName, int birthDay, String address, String phone, String email, String major, int semester, String universityName) {
         super(iD, firstName, lastName, birthDay, address, phone, email);
         this.major = major;
         this.semester = semester;
@@ -50,11 +48,6 @@ public class InternCandidate extends Candidates {
 
     @Override
     public String toString() {
-        return "InternCandidate{" +
-                "major='" + major + '\'' +
-                ", semester=" + semester +
-                ", universityName='" + universityName + '\'' +
-                ", candidateType=" + candidateType +
-                '}';
+        return super.toString()+","+this.major+","+this.semester+","+this.universityName;
     }
 }

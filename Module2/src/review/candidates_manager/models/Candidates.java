@@ -1,25 +1,25 @@
 package review.candidates_manager.models;
 
-import java.util.Date;
-
 public class Candidates {
-    int iD;
-    String firstName;
-    String lastName;
-    int birthDay;
-    String address;
-    int phone;
-    String email;
+    private int iD;
+    private String firstName;
+    private String lastName;
+    private int birthDay;
+    private String address;
+    private String phone;
+    private String email;
 
 
-    public Candidates(int iD, String firstName, String lastName, int birthDay, String address, int phone, String email) {
+
+    public Candidates(int iD, String firstName, String lastName, int birthDay, String address, String phone, String email ) {
         this.iD = iD;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDay = birthDay;
         this.address = address;
-        this.phone = phone;
+        this.setPhone(phone);
         this.email = email;
+
 
     }
 
@@ -66,11 +66,11 @@ public class Candidates {
         this.address = address;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -82,17 +82,10 @@ public class Candidates {
         this.email = email;
     }
 
+
     @Override
     public String toString() {
-        return "Candidates{" +
-                "iD=" + iD +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthDay=" + birthDay +
-                ", address='" + address + '\'' +
-                ", phone=" + phone +
-                ", email='" + email + '\'' +
-                '}';
+        return this.iD+","+this.firstName+","+this.lastName+","+this.birthDay+","+this.address+","+ this.getPhone() +","+this.email;
     }
 }
 

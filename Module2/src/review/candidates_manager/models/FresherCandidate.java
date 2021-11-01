@@ -1,37 +1,33 @@
 package review.candidates_manager.models;
 
-import review.candidates_manager.models.Candidates;
-
-import java.util.Date;
-
 public class FresherCandidate extends Candidates {
-    Date graduationDate;
-    String graduationRank;
-    String education;
-    int candidateType =1;
+    private int graduationTime;
+    private String graduationRank;
+    private String education;
+
 
     public FresherCandidate() {
     }
 
-    public FresherCandidate(int iD, String firstName, String lastName, int birthDay, String address, int phone, String email, int candidateType, Date graduationDate, String graduationRank, String education) {
+    public FresherCandidate(int iD, String firstName, String lastName, int birthDay, String address, String phone, String email, int graduationTime, String graduationRank, String education) {
         super(iD, firstName, lastName, birthDay, address, phone, email);
-        this.graduationDate = graduationDate;
+        this.graduationTime = graduationTime;
         this.graduationRank = graduationRank;
         this.education = education;
     }
 
-    public Date getGraduationDate() {
-        return graduationDate;
+    public int getGraduationTime() {
+        return graduationTime;
     }
 
-    public FresherCandidate(Date graduationDate, String graduationRank, String education) {
-        this.graduationDate = graduationDate;
+    public FresherCandidate(int graduationTime, String graduationRank, String education) {
+        this.graduationTime = graduationTime;
         this.graduationRank = graduationRank;
         this.education = education;
     }
 
-    public void setGraduationDate(Date graduationDate) {
-        this.graduationDate = graduationDate;
+    public void setGraduationDate(int graduationTime) {
+        this.graduationTime = graduationTime;
     }
 
     public String getGraduationRank() {
@@ -52,11 +48,6 @@ public class FresherCandidate extends Candidates {
 
     @Override
     public String toString() {
-        return "FresherCandidate{" +
-                "graduationDate=" + graduationDate +
-                ", graduationRank='" + graduationRank + '\'' +
-                ", education='" + education + '\'' +
-                ", candidateType=" + candidateType +
-                '}';
+        return super.toString()+","+this.graduationTime+","+this.graduationRank+","+this.education;
     }
 }
