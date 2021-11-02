@@ -13,9 +13,10 @@ import java.util.regex.Pattern;
 
 public class CandidateService implements ICandidateService {
 
-    Scanner scanner=new Scanner(System.in);
-    List<Candidates> candidatesList=new ArrayList<>();
-    FileWriter fileWriter= null;
+    Scanner scanner = new Scanner(System.in);
+    List candidatesList = new ArrayList<>();
+    ReadAndWrite readAndWrite = new ReadAndWrite();
+
 
     @Override
     public void creatExperienceCandidate() {
@@ -29,21 +30,9 @@ public class CandidateService implements ICandidateService {
         String address = scanner.nextLine();
         System.out.println("Nhập năm sinh ");
         int birthDay = Integer.parseInt(scanner.nextLine());
-        while (true) {
-            try {
-
-                if (birthDay< 1900 || birthDay > 2021) {
-                    System.out.println("Năm sinh không hợp lệ. Xin nhập lại ");
-                    continue;
-                }
-                break;
-            } catch (Exception e) {
-                System.out.print("Dữ liệu nhập vào không phải là số. Vui lòng nhập lại : ");
-            }
-        }
         System.out.println("Nhập số điện thoại : ");
         String phone = scanner.nextLine();
-        while(!Pattern.matches("^[0-9]{10}$",phone)){
+        while (!Pattern.matches("^[0-9]{10}$", phone)) {
             System.out.println("Bạn đã nhập sai. Xin mời nhập lại số điện thoại");
             phone = scanner.nextLine();
         }
@@ -57,19 +46,7 @@ public class CandidateService implements ICandidateService {
         String choice = scanner.nextLine();
         if (choice.equals("Y")) {
             Candidates experienceCandicate = new ExperienceCandicate(id, firstName, lastName, birthDay, address, phone, email, experienceYear, proSkill);
-            try {
-                fileWriter = new FileWriter("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\review\\candidates_manager\\data\\Candidates",true);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
-            try {
-                bufferedWriter.write(experienceCandicate.toString());
-                bufferedWriter.newLine();
-                bufferedWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            readAndWrite.writeFile(experienceCandicate);
             System.out.println("Hoàn thành !");
         }
     }
@@ -86,21 +63,9 @@ public class CandidateService implements ICandidateService {
         String address = scanner.nextLine();
         System.out.println("Nhập năm sinh ");
         int birthDay = Integer.parseInt(scanner.nextLine());
-        while (true) {
-            try {
-
-                if (birthDay< 1900 || birthDay > 2021) {
-                    System.out.println("Năm sinh không hợp lệ. Xin nhập lại ");
-                    continue;
-                }
-                break;
-            } catch (Exception e) {
-                System.out.print("Dữ liệu nhập vào không phải là số. Vui lòng nhập lại : ");
-            }
-        }
         System.out.println("Nhập số điện thoại : ");
         String phone = scanner.nextLine();
-        while(!Pattern.matches("^[0-9]{10}$",phone)){
+        while (!Pattern.matches("^[0-9]{10}$", phone)) {
             System.out.println("Bạn đã nhập sai. Xin mời nhập lại số điện thoại");
             phone = scanner.nextLine();
         }
@@ -115,20 +80,9 @@ public class CandidateService implements ICandidateService {
         System.out.println("Bạn có muốn tiếp tục (Y/N) ");
         String choice = scanner.nextLine();
         if (choice.equals("Y")) {
-            FresherCandidate fresherCandidate=new FresherCandidate(id, firstName, lastName, birthDay, address, phone, email, graduationTime, graduationRank,education);
-            try {
-                fileWriter = new FileWriter("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\review\\candidates_manager\\data\\Candidates",true);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
-            try {
-                bufferedWriter.write(fresherCandidate.toString());
-                bufferedWriter.newLine();
-                bufferedWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            FresherCandidate fresherCandidate = new FresherCandidate(id, firstName, lastName, birthDay, address, phone, email, graduationTime, graduationRank, education);
+            readAndWrite.writeFile(fresherCandidate);
+
             System.out.println("Hoàn thành !");
         }
 
@@ -146,21 +100,9 @@ public class CandidateService implements ICandidateService {
         String address = scanner.nextLine();
         System.out.println("Nhập năm sinh ");
         int birthDay = Integer.parseInt(scanner.nextLine());
-        while (true) {
-            try {
-
-                if (birthDay< 1900 || birthDay > 2021) {
-                    System.out.println("Năm sinh không hợp lệ. Xin nhập lại ");
-                    continue;
-                }
-                break;
-            } catch (Exception e) {
-                System.out.print("Dữ liệu nhập vào không phải là số. Vui lòng nhập lại : ");
-            }
-        }
         System.out.println("Nhập số điện thoại : ");
         String phone = scanner.nextLine();
-        while(!Pattern.matches("^[0-9]{10}$",phone)){
+        while (!Pattern.matches("^[0-9]{10}$", phone)) {
             System.out.println("Bạn đã nhập sai. Xin mời nhập lại số điện thoại");
             phone = scanner.nextLine();
         }
@@ -175,20 +117,8 @@ public class CandidateService implements ICandidateService {
         System.out.println("Bạn có muốn tiếp tục (Y/N) ");
         String choice = scanner.nextLine();
         if (choice.equals("Y")) {
-            InternCandidate internCandidate=new InternCandidate(id, firstName, lastName, birthDay, address, phone, email, major, semester,universityName);
-            try {
-                fileWriter = new FileWriter("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\review\\candidates_manager\\data\\Candidates",true);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
-            try {
-                bufferedWriter.write(internCandidate.toString());
-                bufferedWriter.newLine();
-                bufferedWriter.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            InternCandidate internCandidate = new InternCandidate(id, firstName, lastName, birthDay, address, phone, email, major, semester, universityName);
+            readAndWrite.writeFile(internCandidate);
             System.out.println("Hoàn thành !");
         }
     }
@@ -200,45 +130,9 @@ public class CandidateService implements ICandidateService {
 
     @Override
     public void showAll() {
-        for (Candidates candidate : candidatesList) {
-            System.out.println(candidate.toString());
+        candidatesList = readAndWrite.readFile();
+        for (int i = 0; i < candidatesList.size(); i++) {
+            System.out.println(candidatesList.get(i));
         }
     }
-
-//    @Override
-//    public void writeFile(FileWriter fileWriter,Candidates candidates) {
-//        try {
-//            fileWriter = new FileWriter("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\review\\candidates_manager\\data\\Candidates",true);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
-//        try {
-//            bufferedWriter.write(candidates.toString());
-//            bufferedWriter.newLine();
-//            bufferedWriter.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-
-//    public List readFile() {
-//        try {
-//            FileReader fileReader = new FileReader("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\review\\candidates_manager\\data\\Candidates");
-//            BufferedReader bufferedReader = new BufferedReader(fileReader);
-//            String line;
-//            while((line=bufferedReader.readLine())!=null){
-//                String[] candidates = line.split(",");
-//                Candidates candidates1=new Candidates(Integer.parseInt(candidates[0]),candidates[1],candidates[2],Integer.parseInt(candidates[3]),candidates[4],candidates[5],candidates[6]);
-//                candidatesList.add(candidates1);
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return candidatesList;
-//    }
 }
