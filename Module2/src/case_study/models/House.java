@@ -1,7 +1,5 @@
 package case_study.models;
 
-import java.util.Date;
-
 public class House extends Facility {
     private String typeOfRoom;
     private int numberOfFloor;
@@ -10,7 +8,7 @@ public class House extends Facility {
 
     }
 
-    public House(String serviceName, int areaUsed, int rentalCost, int maxPeople, Date typeOfRent, String typeOfRoom, int numberOfFloor) {
+    public House(String serviceName, double areaUsed, double rentalCost, int maxPeople, String typeOfRent, String typeOfRoom, int numberOfFloor) {
         super(serviceName, areaUsed, rentalCost, maxPeople, typeOfRent);
         this.typeOfRoom = typeOfRoom;
         this.numberOfFloor = numberOfFloor;
@@ -30,5 +28,13 @@ public class House extends Facility {
 
     public void setNumberOfFloor(int numberOfFloor) {
         this.numberOfFloor = numberOfFloor;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "typeOfRoom='" + typeOfRoom + '\'' +
+                ", numberOfFloor=" + numberOfFloor +
+                "} " + super.toString();
     }
 }

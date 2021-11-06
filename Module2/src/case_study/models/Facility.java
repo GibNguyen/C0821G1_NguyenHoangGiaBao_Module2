@@ -1,18 +1,16 @@
 package case_study.models;
 
-import java.util.Date;
-
 public abstract class Facility {
     private String serviceName;
-    private int areaUsed;
-    private int rentalCost;
+    private double areaUsed;
+    private double rentalCost;
     private int maxPeople;
-    private Date typeOfRent;
+    private String typeOfRent;
 
     public Facility() {
     }
 
-    public Facility(String serviceName, int areaUsed, int rentalCost, int maxPeople, Date typeOfRent) {
+    public Facility(String serviceName, double areaUsed, double rentalCost, int maxPeople, String typeOfRent) {
         this.serviceName = serviceName;
         this.areaUsed = areaUsed;
         this.rentalCost = rentalCost;
@@ -28,19 +26,19 @@ public abstract class Facility {
         this.serviceName = serviceName;
     }
 
-    public int getAreaUsed() {
+    public double getAreaUsed() {
         return areaUsed;
     }
 
-    public void setAreaUsed(int areaUsed) {
+    public void setAreaUsed(double areaUsed) {
         this.areaUsed = areaUsed;
     }
 
-    public int getRentalCost() {
+    public double getRentalCost() {
         return rentalCost;
     }
 
-    public void setRentalCost(int rentalCost) {
+    public void setRentalCost(double rentalCost) {
         this.rentalCost = rentalCost;
     }
 
@@ -52,11 +50,22 @@ public abstract class Facility {
         this.maxPeople = maxPeople;
     }
 
-    public Date getTypeOfRent() {
+    public String getTypeOfRent() {
         return typeOfRent;
     }
 
-    public void setTypeOfRent(Date typeOfRent) {
+    public void setTypeOfRent(String typeOfRent) {
         this.typeOfRent = typeOfRent;
+    }
+
+    @Override
+    public String toString() {
+        return "Facility{" +
+                "serviceName='" + serviceName + '\'' +
+                ", areaUsed=" + areaUsed +
+                ", rentalCost=" + rentalCost +
+                ", maxPeople=" + maxPeople +
+                ", typeOfRent='" + typeOfRent + '\'' +
+                '}';
     }
 }

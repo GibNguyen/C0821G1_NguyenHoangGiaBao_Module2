@@ -1,13 +1,11 @@
 package case_study.models;
 
-import java.util.Date;
-
 public class Villa extends Facility{
     private String typeOfRoom;
-    private int areaOfPool;
+    private double areaOfPool;
     private int numberOfFloor;
 
-    public Villa(String serviceName, int areaUsed, int rentalCost, int maxPeople, Date typeOfRent, String typeOfRoom, int areaOfPool, int numberOfFloor) {
+    public Villa(String serviceName, double areaUsed, double rentalCost, int maxPeople, String typeOfRent, String typeOfRoom, double areaOfPool, int numberOfFloor) {
         super(serviceName, areaUsed, rentalCost, maxPeople, typeOfRent);
         this.typeOfRoom = typeOfRoom;
         this.areaOfPool = areaOfPool;
@@ -23,11 +21,11 @@ public class Villa extends Facility{
         this.typeOfRoom = typeOfRoom;
     }
 
-    public int getAreaOfPool() {
+    public double getAreaOfPool() {
         return areaOfPool;
     }
 
-    public void setAreaOfPool(int areaOfPool) {
+    public void setAreaOfPool(double areaOfPool) {
         this.areaOfPool = areaOfPool;
     }
 
@@ -37,5 +35,14 @@ public class Villa extends Facility{
 
     public void setNumberOfFloor(int numberOfFloor) {
         this.numberOfFloor = numberOfFloor;
+    }
+
+    @Override
+    public String toString() {
+        return "Villa{" +
+                "typeOfRoom='" + typeOfRoom + '\'' +
+                ", areaOfPool=" + areaOfPool +
+                ", numberOfFloor=" + numberOfFloor +
+                "} " + super.toString();
     }
 }

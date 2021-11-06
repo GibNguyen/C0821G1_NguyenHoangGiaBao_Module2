@@ -1,7 +1,5 @@
 package case_study.models;
 
-import java.util.Date;
-
 public class Employee extends Person {
     private int employeeId;
     private String level;
@@ -10,7 +8,7 @@ public class Employee extends Person {
 
     public Employee(){}
 
-    public Employee(String name, Date dateOfBirth, String gender, int identityNumber, int phoneNumber, String email, int employeeId, String level, String position, Double salary) {
+    public Employee(String name, String dateOfBirth, String gender, int identityNumber, int phoneNumber, String email, int employeeId, String level, String position, Double salary) {
         super(name, dateOfBirth, gender, identityNumber, phoneNumber, email);
         this.employeeId = employeeId;
         this.level = level;
@@ -48,5 +46,15 @@ public class Employee extends Person {
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", level='" + level + '\'' +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                "} " + super.toString();
     }
 }
