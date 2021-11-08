@@ -2,6 +2,7 @@ package case_study.services;
 
 import case_study.models.Customer;
 import case_study.models.Employee;
+import case_study.untils.ReadWriteFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.regex.Pattern;
 
 public class CustomerService implements ICustomerService {
     List<Customer> customerList;
+    ReadWriteFile readWriteFile=new ReadWriteFile();
 
     public CustomerService() {
         customerList = new ArrayList();
@@ -48,6 +50,7 @@ public class CustomerService implements ICustomerService {
         Customer customer = new Customer(nameCustomer, dateOfBirthCustomer, genderCustomer, identityCustomer, phoneCustomer, emailCustomer, idCustomer, typeOfCustomer, addressCustomer);
         customerList.add(customer);
         System.out.println("Add Successful");
+        readWriteFile.writeListCustomer("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\case_study\\data\\Customer",customerList);
     }
 
     @Override
@@ -81,6 +84,8 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public void displayList() {
+        customerList=new ArrayList<>();
+        readWriteFile.readListCustomer("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\case_study\\data\\Customer",customerList);
         for (Customer customer : customerList) {
             System.out.println(customer);
         }

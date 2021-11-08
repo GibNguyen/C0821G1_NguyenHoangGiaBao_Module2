@@ -1,6 +1,9 @@
 package case_study.services;
 
 import case_study.models.Employee;
+import case_study.models.Person;
+import case_study.untils.ReadWriteFile;
+import review.candidates_manager.services.ReadAndWrite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +12,7 @@ import java.util.regex.Pattern;
 
 public class EmployeeService implements IEmployeeSercice {
      List<Employee> employeeList;
+     ReadWriteFile readWriteFile = new ReadWriteFile();
 
     public EmployeeService() {
          employeeList = new ArrayList();
@@ -48,6 +52,7 @@ public class EmployeeService implements IEmployeeSercice {
         double salaryEmployee = Double.parseDouble(scanner.nextLine());
         Employee employee = new Employee(nameEmployee,dateOfBirthEmployee,genderEmployee,identityEmployee,phoneEmployee,emailEmployee,idEmployee,levelEmployee,possitionEmployee,salaryEmployee);
         employeeList.add(employee);
+        readWriteFile.writeListEmployee("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\case_study\\data\\Employee",employeeList);
         System.out.println("Add Successful");
     }
 
@@ -85,6 +90,8 @@ public class EmployeeService implements IEmployeeSercice {
 
     @Override
     public void displayList() {
+        employeeList=new ArrayList<>();
+        readWriteFile.readListEmployee("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\case_study\\data\\Employee",employeeList);
         for(Employee employee:employeeList){
             System.out.println(employee);
         }

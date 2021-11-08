@@ -1,6 +1,7 @@
 package case_study.services;
 
 import case_study.models.*;
+import case_study.untils.ReadWriteFile;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -10,10 +11,10 @@ public class FacilityService implements IFacilityService {
     public FacilityService() {
         facilityList = new LinkedHashMap<>();
     }
-
     public FacilityService(Map<Facility, Integer> facilityList) {
         this.facilityList = facilityList;
     }
+    ReadWriteFile readWriteFile=new ReadWriteFile();
 
     Scanner scanner = new Scanner(System.in);
 
@@ -90,6 +91,7 @@ public class FacilityService implements IFacilityService {
         while (villaFloor <= 0);
         Villa villa = new Villa(villaName, villaArea, villaCost, villaMaxPeople, rentType, villaType, poolArea, villaFloor);
         facilityList.put(villa, 0);
+        readWriteFile.writeMap("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\case_study\\data\\Facility",facilityList);
         System.out.println("Add Successful");
     }
 
@@ -157,6 +159,7 @@ public class FacilityService implements IFacilityService {
         while (houseFloor <= 0);
         House house = new House(houseName, houseArea, houseCost, houseMaxPeople, rentType, houseType, houseFloor);
         facilityList.put(house, 0);
+        readWriteFile.writeMap("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\case_study\\data\\Facility",facilityList);
         System.out.println("Add Successful");
     }
 
@@ -170,7 +173,7 @@ public class FacilityService implements IFacilityService {
         }
         double roomArea;
         do {
-            System.out.println("Enter the area of villa : ");
+            System.out.println("Enter the area of room : ");
             roomArea = Double.parseDouble(scanner.nextLine());
             if (roomArea < 30) {
                 System.err.println("The area must over 30");
@@ -208,11 +211,14 @@ public class FacilityService implements IFacilityService {
         String roomFreeService = scanner.nextLine();
         Room room = new Room(roomName, roomArea, roomCost, roomMaxPeople, rentType, roomFreeService);
         facilityList.put(room, 0);
+        readWriteFile.writeMap("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\case_study\\data\\Facility",facilityList);
         System.out.println("Add Successful");
     }
 
     @Override
     public void displayListFacility() {
+        facilityList = new HashMap<>();
+        readWriteFile.readMap("E:\\Gia Bao\\Hoc Tap\\Code Gym\\CodeGym\\Module 2\\Module2\\src\\case_study\\data\\Facility",facilityList);
         for (Map.Entry<Facility, Integer> facility : facilityList.entrySet()) {
             System.out.println(facility.getKey().toString());
         }
